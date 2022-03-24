@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.TransitionManager;
 
 import com.bumptech.glide.Glide;
 
@@ -47,6 +49,21 @@ public class RuleRecViewAdapter extends  RecyclerView.Adapter<RuleRecViewAdapter
                 .load(rules.get(position).getImgUrl())
                 .into(holder.imgRule);
 
+
+
+        holder.txtExplaination.setText(rules.get(position).getExplanation());
+
+        if ( rules.get(position).isExpanded())
+        {
+            TransitionManager.beginDelayedTransition(holder.parent);
+            holder.expandedRelLayout.setVisibility(View.VISIBLE);
+            holder.downArrow.setVisibility(View.GONE);
+        }
+        else{
+            holder.expandedRelLayout.setVisibility(View.GONE);
+            holder.downArrow.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
@@ -67,13 +84,41 @@ public class RuleRecViewAdapter extends  RecyclerView.Adapter<RuleRecViewAdapter
         private ImageView imgRule;
         private TextView txtName;
 
-
+        private ImageView downArrow, upArrow;
+        private RelativeLayout expandedRelLayout;
+        private TextView txtExplaination;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             parent = itemView.findViewById(R.id.parent);
             imgRule = itemView.findViewById(R.id.imgRule);
             txtName = itemView.findViewById(R.id.txtName);
+
+            downArrow = itemView.findViewById(R.id.btnDownArrow);
+            upArrow = itemView.findViewById(R.id.btnUpArrow);
+            expandedRelLayout = itemView.findViewById(R.id.expandedRelLayout);
+            txtExplaination = itemView.findViewById(R.id.txtExplain);
+
+
+            downArrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Rule rule = rules.get(getAdapterPosition());
+                    rule.setExpanded(!rule.isExpanded());
+                    notifyItemChanged(getAdapterPosition());
+                }
+            });
+
+
+            upArrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Rule rule = rules.get(getAdapterPosition());
+                    rule.setExpanded(!rule.isExpanded());
+                    notifyItemChanged(getAdapterPosition());
+                }
+            });
+
         }
     }
 }

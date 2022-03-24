@@ -4,13 +4,23 @@ public class Rule {
     private String name,explanation;
     private int id;
     private String imgUrl;
-
+    private boolean isExpanded;
 
     public Rule(String name, String explanation, int id, String imgUrl) {
         this.name = name;
         this.explanation = explanation;
         this.id = id;
         this.imgUrl = imgUrl;
+        isExpanded = false;
+    }
+
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        isExpanded = expanded;
     }
 
     public String getName() {

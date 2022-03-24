@@ -8,29 +8,71 @@
     app:cardElevation="7dp"
     android:layout_marginTop="5dp">
 
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_marginTop="100dp"
-       android:layout_marginLeft="50dp">
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp">
 
-       <ImageView
-           android:id="@+id/imgRule"
-           android:layout_width="300dp"
-           android:layout_height="300dp"
-           android:src="@mipmap/ic_launcher" />
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Rule Name"
-           android:textStyle="bold"
-           android:id="@+id/txtName"
 
-           android:textSize="16sp"
-           android:layout_below="@+id/imgRule"
-           android:layout_centerHorizontal="true"
-           android:layout_marginTop="7dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:id="@+id/collapsedRelLayout">
 
-   </RelativeLayout>
+            <ImageView
+                android:id="@+id/imgRule"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgRule"
+
+
+                android:layout_marginTop="7dp"
+                android:text="Rule Name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/btnDownArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgRule"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="7dp"
+                android:src="@drawable/ic_down_arrow" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/collapsedRelLayout"
+            android:id="@+id/expandedRelLayout"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explaination"
+                android:id="@+id/txtExplain"
+                android:layout_marginTop="7dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_up_arrow"
+                android:layout_below="@+id/txtExplain"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/btnUpArrow"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+    
+    
+
 
 </com.google.android.material.card.MaterialCardView>
