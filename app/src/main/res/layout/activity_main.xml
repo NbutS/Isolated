@@ -2,36 +2,37 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/img_logo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
-<!--    <Button-->
-<!--        android:id="@+id/btn5K"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginTop="508dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        android:text="5K RULE"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <Button-->
+    <!--        android:id="@+id/btn5K"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginTop="508dp"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:text="5K RULE"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--    <Button-->
-<!--        android:id="@+id/btnQRCODE"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginTop="508dp"-->
-<!--        android:text="QR CODE"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/btn5K"-->
-<!--        app:layout_constraintHorizontal_bias="0.082"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <Button-->
+    <!--        android:id="@+id/btnQRCODE"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginTop="508dp"-->
+    <!--        android:text="QR CODE"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/btn5K"-->
+    <!--        app:layout_constraintHorizontal_bias="0.082"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <!--        app:layout_constraintTop_toBottomOf="@+id/imageView3"-->
-<!--        app:layout_constraintVertical_bias="0.869" />-->
+    <!--        app:layout_constraintVertical_bias="0.869" />-->
 
     <TextView
         android:id="@+id/txtLogo"
@@ -39,13 +40,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="120dp"
         android:layout_marginBottom="60dp"
         android:text="Developed By @NL"
-        android:textStyle="bold|italic"
         android:textSize="20dp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -56,7 +56,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="228dp"
         android:src="@mipmap/pccovid"
-        app:layout_constraintBottom_toTopOf="@+id/imgLogo"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -64,14 +64,26 @@
 
     </ImageView>
 
+    <ImageView
+        android:id="@+id/img_logoclb"
+        android:layout_width="47dp"
+        android:layout_height="39dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toEndOf="@+id/txtLogo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93"
+        app:srcCompat="@drawable/logo_clb" />
+
     <!--    <Button-->
-<!--        android:id="@+id/btnHD"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginTop="164dp"-->
-<!--        android:text="health declaration"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/imageView3" />-->
+    <!--        android:id="@+id/btnHD"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginTop="164dp"-->
+    <!--        android:text="health declaration"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/imageView3" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

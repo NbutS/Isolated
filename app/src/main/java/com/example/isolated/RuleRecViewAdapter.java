@@ -34,7 +34,6 @@ public class RuleRecViewAdapter extends  RecyclerView.Adapter<RuleRecViewAdapter
 
 
 
-
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.file_list,parent,false);
         //ViewHolder holder = new ViewHolder(view);
         return new ViewHolder(view);

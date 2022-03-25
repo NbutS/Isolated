@@ -24,6 +24,13 @@ public class Home_Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnHD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home_Activity.this, Health_declaration.class);
+                startActivity(intent);
+            }
+        });
     }
     private void initViews()
     {
