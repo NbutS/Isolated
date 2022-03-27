@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Isolated">
         <activity
+            android:name=".InformationActivity"
+            android:exported="false" />
+        <activity
             android:name=".Health_declaration"
             android:exported="false" />
         <activity
@@ -36,6 +39,10 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

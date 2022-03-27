@@ -28,6 +28,7 @@ public class Health_declaration extends AppCompatActivity {
         sexes.add("Male");
         sexes.add("Female");
 
+
         ArrayAdapter<String> sexesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,sexes);
         sexSpinner.setAdapter(sexesAdapter);
 
