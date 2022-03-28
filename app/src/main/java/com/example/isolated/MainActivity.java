@@ -15,11 +15,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 
-    Animation up,down,down1;
+    Animation up,down,down1,up1;
 
     ImageView imageView;
     //private Button btnQRCODE, btn5K, btnHD;
-    TextView textView;
+    TextView textView,txtNameApp;
     ImageView img_logo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         imageView=findViewById(R.id.imageView3);
         up = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.up);
         imageView.setAnimation(up);
+
+        txtNameApp = findViewById(R.id.name_app);
+        up1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.up);
+        txtNameApp.setAnimation(up1);
 
         textView = findViewById(R.id.txtLogo);
         down = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.down);

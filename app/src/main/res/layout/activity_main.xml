@@ -76,6 +76,21 @@
         app:layout_constraintVertical_bias="0.93"
         app:srcCompat="@drawable/logo_clb" />
 
+    <TextView
+        android:id="@+id/name_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/berkshire_swash"
+        android:text="ISOLATED"
+        android:textColor="#4CAF50"
+        android:textSize="29dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.609" />
+
     <!--    <Button-->
     <!--        android:id="@+id/btnHD"-->
     <!--        android:layout_width="wrap_content"-->

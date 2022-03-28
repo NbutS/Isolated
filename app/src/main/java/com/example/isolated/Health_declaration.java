@@ -3,8 +3,14 @@ package com.example.isolated;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.example.isolated.database.UserDatabase;
 
 import java.util.ArrayList;
 
@@ -16,11 +22,18 @@ public class Health_declaration extends AppCompatActivity {
     private Spinner monthSpinner;
     private Spinner yearSpinner;
     private Spinner proSpinner;
+    private EditText name, phoneNumber, email;
+    private Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_declaration);
 
+
+        name = findViewById(R.id.editTextTextPersonName);
+        phoneNumber = findViewById(R.id.editTextPhone);
+        email = findViewById(R.id.editTextTextEmailAddress);
+        btn = findViewById(R.id.btnSubmitDec);
         //Spinner sex
         sexSpinner = findViewById(R.id.spinner_sex);
         ArrayList<String> sexes = new ArrayList<>();
@@ -77,5 +90,30 @@ public class Health_declaration extends AppCompatActivity {
         ArrayAdapter<String> proAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,provinces);
         proSpinner.setAdapter(proAdapter);
 
+
+        //=========================================
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addUser();
+            }
+        });
+
+    }
+    private void addUser()
+    {
+        String m_Name = name.getText().toString().trim();
+        String m_phoneNum = phoneNumber.getText().toString().trim();
+        String m_email = email.getText().toString().trim();
+        String m_day,m_month, m_year, m_sex, m_province;
+        m_day =  dateSpinner.getSelectedItem().toString();
+        m_month =  monthSpinner.getSelectedItem().toString();
+        m_year =  yearSpinner.getSelectedItem().toString();
+        m_sex =  sexSpinner.getSelectedItem().toString();
+        m_province =  proSpinner.getSelectedItem().toString();
+        User user = new User(m_Name,m_sex,m_day,m_month,m_year,m_province,m_phoneNum);
+        UserDatabase.getInstance(this).m_userDAO().insertUser(user);
+        Toast.makeText(this,"successful medical declaration", Toast.LENGTH_SHORT).show();
     }
 }
