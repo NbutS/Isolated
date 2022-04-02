@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.isolated.database.UserDatabase;
@@ -73,9 +74,13 @@ public class Health_declaration extends AppCompatActivity {
         yearSpinner = findViewById(R.id.spinner_year);
         ArrayList<String> years = new ArrayList<>();
         years.add("Year");
-        years.add("1991");years.add("1992");years.add("1993");years.add("1994");years.add("1995");years.add("1996");years.add("1997");
-        years.add("1998");years.add("1999");years.add("2000");years.add("2001");years.add("2002");years.add("2003");years.add("2004");
-        years.add("2005");years.add("2006");years.add("2007");years.add("2008");years.add("2009");years.add("2010");years.add("2011");
+        for ( Integer i = 1910; i <= 2015 ; i++ )
+        {
+            years.add(i.toString());
+        }
+//        years.add("1991");years.add("1992");years.add("1993");years.add("1994");years.add("1995");years.add("1996");years.add("1997");
+//        years.add("1998");years.add("1999");years.add("2000");years.add("2001");years.add("2002");years.add("2003");years.add("2004");
+//        years.add("2005");years.add("2006");years.add("2007");years.add("2008");years.add("2009");years.add("2010");years.add("2011");
 
         ArrayAdapter<String> yearAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,years);
         yearSpinner.setAdapter(yearAdapter);
@@ -112,8 +117,25 @@ public class Health_declaration extends AppCompatActivity {
         m_year =  yearSpinner.getSelectedItem().toString();
         m_sex =  sexSpinner.getSelectedItem().toString();
         m_province =  proSpinner.getSelectedItem().toString();
-        User user = new User(m_Name,m_sex,m_day,m_month,m_year,m_province,m_phoneNum);
-        UserDatabase.getInstance(this).m_userDAO().insertUser(user);
-        Toast.makeText(this,"successful medical declaration", Toast.LENGTH_SHORT).show();
+        if( m_Name.compareTo("") == 0 || m_phoneNum.compareTo("") == 0 || m_email.compareTo("") == 0 )
+        {
+            Dialog dialog = new Dialog();
+            dialog.show(getSupportFragmentManager(),"Dialog");
+        }
+        else if(!Util.checkEmail(m_email)|| !Util.checkPhoneNumber(m_phoneNum))
+        {
+            EmailDialog dialog = new EmailDialog();
+            dialog.show(getSupportFragmentManager(),"Dialog_1");
+        }
+        else{
+            User user = new User(m_Name,m_sex,m_day,m_month,m_year,m_province,m_phoneNum,m_email);
+            UserDatabase.getInstance(this).m_userDAO().insertUser(user);
+            name.setText(""); phoneNumber.setText(""); email.setText("");
+            dateSpinner.setSelection(0); monthSpinner.setSelection(0); yearSpinner.setSelection(0); sexSpinner.setSelection(0); proSpinner.setSelection(0);
+
+            Toast.makeText(this,"successful medical declaration", Toast.LENGTH_SHORT).show();
+        }
+
     }
+
 }

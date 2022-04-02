@@ -8,10 +8,10 @@ import androidx.room.PrimaryKey;
 public class User {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String name,sex,date,month,year,province,phoneNumber;
+    private String name,sex,date,month,year,province,phoneNumber,email;
 
 
-    public User(String name, String sex, String date, String month, String year, String province, String phoneNumber) {
+    public User(String name, String sex, String date, String month, String year, String province, String phoneNumber,String email) {
         this.name = name;
         this.sex = sex;
         this.date = date;
@@ -19,6 +19,15 @@ public class User {
         this.year = year;
         this.province = province;
         this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getId() {

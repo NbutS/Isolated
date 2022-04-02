@@ -7,6 +7,7 @@ import androidx.room.Query;
 
 import com.example.isolated.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
